@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite parallel="false" name="Suite">
+<suite parallel="false" name="NopCommerce">
 
-	<test name="Test">
+	<parameter name="url" value="https://demo.nopcommerce.com/" />
+
+	<test name="Test on Firefox">
+	<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="afc.nopcommerce.user.Fw_05_Page_Generator" />
+			<class name="afc.nopcommerce.user.Fw_06_Cross_Browser_Testing" />
+		</classes>
+	</test>
+
+	<test name="Test on Chrome">
+	<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="afc.nopcommerce.user.Fw_06_Cross_Browser_Testing" />
+		</classes>
+	</test>
+
+	<test name="Test on Edge">
+	<parameter name="browser" value="edge" />
+		<classes>
+			<class name="afc.nopcommerce.user.Fw_06_Cross_Browser_Testing" />
 		</classes>
 	</test>
 
