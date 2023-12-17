@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel="false" name="Suite">
+
+	<test name="Test">
+		<classes>
+			<class name="afc.nopcommerce.user.Fw_01_YAGNI_KISS_DRY" />
+		</classes>
+	</test>
+
+</suite>
