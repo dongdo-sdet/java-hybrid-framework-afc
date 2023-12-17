@@ -3,7 +3,7 @@
 
 	<test name="Test">
 		<classes>
-			<class name="afc.nopcommerce.user.Fw_01_YAGNI_KISS_DRY" />
+			<class name="afc.nopcommerce.user.Fw_02_Selenium_Wapper" />
 		</classes>
 	</test>
 
