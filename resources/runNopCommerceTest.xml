@@ -3,7 +3,7 @@
 
 	<test name="Test">
 		<classes>
-			<class name="afc.nopcommerce.user.Fw_02_Selenium_Wapper" />
+			<class name="afc.nopcommerce.user.Fw_05_Page_Generator" />
 		</classes>
 	</test>
 
