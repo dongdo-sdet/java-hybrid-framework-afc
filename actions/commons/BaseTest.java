@@ -25,7 +25,7 @@ public class BaseTest {
 			throw new RuntimeException("'" + browserName.toUpperCase() + "' Browser is invalid.");
 		}
 
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get(appUrl);
 		return driver;
