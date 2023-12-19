@@ -12,6 +12,7 @@ public class GlobalConstants {
 	public static final String JAVA_VERSION = System.getProperty("java.version");
 	public static final String UPLOAD_FILE_PATH = PROJECT_PATH + File.separator + "uploadFiles" + File.separator;
 	public static final String EXTENT_REPORTS_PATH = PROJECT_PATH + File.separator + "extentReports-output" + File.separator;
+	public static final String ALLURE_REPORTS_PATH = PROJECT_PATH + File.separator + "allure-results";
 
 	public static final long LONG_TIMEOUT = 30;
 	public static final long ONE_SECOND = 1;
