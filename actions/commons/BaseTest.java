@@ -3,6 +3,8 @@ package commons;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -11,6 +13,11 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
 	private WebDriver driver;
+	protected final Logger log = LogManager.getLogger(getClass());
+
+	public WebDriver getDriver() {
+		return driver;
+	}
 
 	protected WebDriver getBrowserDriver(String browserName, String appUrl) {
 		switch (browserName) {
