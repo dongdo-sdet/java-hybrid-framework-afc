@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite parallel="false" name="NopCommerce">
 
+	<listeners>
+		<listener class-name="commons.MethodListener" />
+	</listeners>
+
 	<parameter name="url" value="https://demo.nopcommerce.com/" />
 
 	<test name="Test on Firefox">
-	<parameter name="browser" value="firefox" />
+		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="afc.nopcommerce.user.Fw_07_Pattern_Objects" />
+			<class name="afc.nopcommerce.user.Fw_10_Assert_Verify" />
 		</classes>
 	</test>
 
