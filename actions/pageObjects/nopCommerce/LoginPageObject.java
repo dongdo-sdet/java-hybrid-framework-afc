@@ -1,5 +1,8 @@
 package pageObjects.nopCommerce;
 
+import java.util.Set;
+
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePageObject;
@@ -31,6 +34,15 @@ public class LoginPageObject extends BasePageObject {
 	public HomePageObject clickToLoginButton() {
 		waitElementClickable(driver, LoginPageUI.LOGIN_BUTTON);
 		clickToElement(driver, LoginPageUI.LOGIN_BUTTON);
+		return PageGeneratorNopCommerce.getHomePage(driver);
+	}
+
+	public HomePageObject loginByCookies(Set<Cookie> loginCookies) {
+		setCookies(driver, loginCookies);
+		refreshPage(driver);
+		waitElementClickable(driver, "//div[@class='bar-notification success']//span[@class='close']");
+		clickToElement(driver, "//div[@class='bar-notification success']//span[@class='close']");
+		sleepInSecond(3);
 		return PageGeneratorNopCommerce.getHomePage(driver);
 	}
 

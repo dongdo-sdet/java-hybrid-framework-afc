@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite parallel="false" name="NopCommerce">
 
-	<listeners>
-		<listener class-name="reportConfig.AllureTestListener" />
-	</listeners>
-
 	<parameter name="url" value="https://demo.nopcommerce.com/" />
 
 	<test name="Test on Firefox">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="afc.nopcommerce.user.Fw_13_Allure_ReportS" />
+			<class name="afc.nopcommerce.commons.Common_01_User_Register_Login" />
+			<class name="afc.nopcommerce.user.Fw_15_Share_States_Cookies" />
 		</classes>
 	</test>
 

@@ -1,5 +1,8 @@
 package pageObjects.nopCommerce;
 
+import java.util.Set;
+
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePageObject;
@@ -51,6 +54,10 @@ public class HomePageObject extends BasePageObject {
 	public boolean isLoginHeaderLinkDisplayed() {
 		waitElementVisible(driver, HomePageUI.LOGIN_HEADER_LINK);
 		return isElementDisplayed(driver, HomePageUI.LOGIN_HEADER_LINK);
+	}
+
+	public Set<Cookie> getLoginCookies() {
+		return getCookies(driver);
 	}
 
 }
