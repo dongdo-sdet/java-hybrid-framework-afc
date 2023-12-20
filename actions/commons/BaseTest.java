@@ -1,6 +1,7 @@
 package commons;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -99,6 +100,52 @@ public class BaseTest {
 			}
 		} catch (Exception e) {
 			System.out.print(e.getMessage());
+		}
+	}
+
+	protected void closeBrowserDriver() {
+		String cmd = null;
+
+		String osName = System.getProperty("os.name").toLowerCase();
+		log.info("OS Name: " + osName);
+
+		String driverInstance = driver.toString().toLowerCase();
+		log.info("Driver instance name: " + driverInstance);
+
+		String browserDriver = null;
+
+		try {
+			if (driverInstance.contains("firefox")) {
+				browserDriver = "geckodriver";
+			} else if (driverInstance.contains("chrome")) {
+				browserDriver = "chromedriver";
+			} else if (driverInstance.contains("edge")) {
+				browserDriver = "msedgedriver";
+			} else {
+				browserDriver = "safaridriver";
+			}
+
+			if (osName.contains("window")) {
+				cmd = "taskkill /F /FI \"IMAGENAME eq " + browserDriver + "*\"";
+			} else {
+				cmd = "pkill " + browserDriver;
+			}
+
+			if (driver != null) {
+				driver.manage().deleteAllCookies();
+				driver.quit();
+			}
+		} catch (Exception e) {
+			log.info(e.getMessage());
+		} finally {
+			try {
+				Process process = Runtime.getRuntime().exec(cmd);
+				process.waitFor();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
