@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel="false" name="Swag Labs">
+
+	<parameter name="url" value="https://www.saucedemo.com/" />
+
+	<test name="Run on Firefox">
+		<parameter name="browser" value="firefox" />
+		<classes>
+			<class name="afc.swaglabs.user.Fw_17_Sort_Page_Data" />
+		</classes>
+	</test>
+
+</suite>
