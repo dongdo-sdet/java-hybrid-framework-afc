@@ -6,7 +6,7 @@
 	<test name="Test on Firefox">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="afc.nopcommerce.user.Fw_17_Data_Internal_File" />
+			<class name="afc.nopcommerce.user.Fw_17_Data_Json_File" />
 		</classes>
 	</test>
 
