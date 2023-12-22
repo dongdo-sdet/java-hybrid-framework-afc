@@ -6,14 +6,7 @@
 	<test name="Test on Firefox">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="afc.nopcommerce.user.Fw_16_Custom_Close_Drivers" />
-		</classes>
-	</test>
-
-	<test name="Test on Chrome">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="afc.nopcommerce.user.Fw_16_Custom_Close_Drivers" />
+			<class name="afc.nopcommerce.user.Fw_17_Data_Faker" />
 		</classes>
 	</test>
 
