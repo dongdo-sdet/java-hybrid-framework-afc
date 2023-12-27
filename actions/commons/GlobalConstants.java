@@ -4,6 +4,16 @@ import java.io.File;
 
 public class GlobalConstants {
 
+	public static final String DEV_NOPCOMMERCE_USER_URL = "https://dev.nopcommerce.com/";
+	public static final String TEST_NOPCOMMERCE_USER_URL = "https://test.nopcommerce.com/";
+	public static final String DEMO_NOPCOMMERCE_USER_URL = "https://demo.nopcommerce.com/";
+	public static final String PROD_NOPCOMMERCE_USER_URL = "https://prod.nopcommerce.com/";
+
+	public static final String DEV_NOPCOMMERCE_ADMIN_URL = "https://admin-dev.nopcommerce.com/";
+	public static final String TEST_NOPCOMMERCE_ADMIN_URL = "https://admin-test.nopcommerce.com/";
+	public static final String DEMO_NOPCOMMERCE_ADMIN_URL = "https://admin-demo.nopcommerce.com/";
+	public static final String PROD_NOPCOMMERCE_ADMIN_URL = "https://admin-prod.nopcommerce.com/";
+
 	public static final String PAGINATION_WEB_TABLE_URL = "https://www.jqueryscript.net/demo/CRUD-Data-Grid-Plugin-jQuery-Quickgrid/";
 	public static final String DYNAMIC_WEB_TABLE_URL = "https://www.jqueryscript.net/demo/jQuery-Dynamic-Data-Grid-Plugin-appendGrid/";
 	public static final String UPLOAD_FILE_URL = "https://blueimp.github.io/jQuery-File-Upload/";

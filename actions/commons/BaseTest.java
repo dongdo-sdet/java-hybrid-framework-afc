@@ -23,14 +23,15 @@ public class BaseTest {
 	}
 
 	protected WebDriver getBrowserDriver(String browserName, String appUrl) {
-		switch (browserName) {
-		case "firefox":
+		BrowsersList browserList = BrowsersList.valueOf(browserName.toUpperCase());
+		switch (browserList) {
+		case FIREFOX:
 			driver = WebDriverManager.firefoxdriver().create();
 			break;
-		case "chrome":
+		case CHROME:
 			driver = WebDriverManager.chromedriver().create();
 			break;
-		case "edge":
+		case EDGE:
 			driver = WebDriverManager.edgedriver().create();
 			break;
 		default:
@@ -41,6 +42,94 @@ public class BaseTest {
 		driver.manage().window().maximize();
 		driver.get(appUrl);
 		return driver;
+	}
+
+	protected WebDriver getDriverByServer(String browserName, String serverName) {
+		BrowsersList browserList = BrowsersList.valueOf(browserName.toUpperCase());
+		switch (browserList) {
+		case FIREFOX:
+			driver = WebDriverManager.firefoxdriver().create();
+			break;
+		case CHROME:
+			driver = WebDriverManager.chromedriver().create();
+			break;
+		case EDGE:
+			driver = WebDriverManager.edgedriver().create();
+			break;
+		default:
+			throw new RuntimeException("'" + browserName.toUpperCase() + "' Browser is invalid.");
+		}
+
+		driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		driver.get(getUserUrlByServer(serverName));
+		return driver;
+	}
+
+	protected WebDriver getDriverByServerAndRole(String browserName, String serverName, String role) {
+		BrowsersList browserList = BrowsersList.valueOf(browserName.toUpperCase());
+		switch (browserList) {
+		case FIREFOX:
+			driver = WebDriverManager.firefoxdriver().create();
+			break;
+		case CHROME:
+			driver = WebDriverManager.chromedriver().create();
+			break;
+		case EDGE:
+			driver = WebDriverManager.edgedriver().create();
+			break;
+		default:
+			throw new RuntimeException("'" + browserName.toUpperCase() + "' Browser is invalid.");
+		}
+
+		driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		driver.get(getUrlByServerAndRole(serverName, role));
+		return driver;
+	}
+
+	private String getUrlByServerAndRole(String serverName, String role) {
+		RoleList roleList = RoleList.valueOf(role.toUpperCase());
+		switch (roleList) {
+		case USER:
+			return getUserUrlByServer(serverName);
+		case ADMIN:
+			return getAdminUrlByServer(serverName);
+		default:
+			throw new RuntimeException("Invalid role");
+		}
+	}
+
+	private String getUserUrlByServer(String serverName) {
+		ServersList serversList = ServersList.valueOf(serverName.toUpperCase());
+		switch (serversList) {
+		case DEV:
+			return GlobalConstants.DEV_NOPCOMMERCE_USER_URL;
+		case TEST:
+			return GlobalConstants.TEST_NOPCOMMERCE_USER_URL;
+		case DEMO:
+			return GlobalConstants.DEMO_NOPCOMMERCE_USER_URL;
+		case PROD:
+			return GlobalConstants.PROD_NOPCOMMERCE_USER_URL;
+		default:
+			throw new RuntimeException("Invalid Server");
+		}
+	}
+
+	private String getAdminUrlByServer(String serverName) {
+		ServersList serversList = ServersList.valueOf(serverName.toUpperCase());
+		switch (serversList) {
+		case DEV:
+			return GlobalConstants.DEV_NOPCOMMERCE_ADMIN_URL;
+		case TEST:
+			return GlobalConstants.TEST_NOPCOMMERCE_ADMIN_URL;
+		case DEMO:
+			return GlobalConstants.DEMO_NOPCOMMERCE_ADMIN_URL;
+		case PROD:
+			return GlobalConstants.DEMO_NOPCOMMERCE_ADMIN_URL;
+		default:
+			throw new RuntimeException("Invalid Server");
+		}
 	}
 
 	protected int getRandomNumber() {

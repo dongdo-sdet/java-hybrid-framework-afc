@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite parallel="false" name="NopCommerce">
 
-	<parameter name="url" value="https://demo.nopcommerce.com/" />
+	<parameter name="server" value="demo" />
+	<!--<parameter name="role" value="user" />-->
 
 	<test name="Test on Firefox">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="afc.nopcommerce.user.Fw_17_Data_Json_File" />
+			<class name="afc.nopcommerce.user.Fw_18_Multiple_Environments_II" />
 		</classes>
 	</test>
 
